@@ -1,55 +1,58 @@
 # SolidDocs
 
-一个自包含的文档协作和签署库，为 ASP.NET Core 应用提供 OnlyOffice 集成。
+[![English](https://img.shields.io/badge/Language-English-blue.svg)](README.md)
+[![中文](https://img.shields.io/badge/Language-中文-red.svg)](README.zh-CN.md)
 
-## 📁 项目结构
+A self-contained document collaboration and signing library that provides OnlyOffice integration for ASP.NET Core applications.
+
+## 📁 Project Structure
 
 ```
 SolidDocs/
 ├── src/
-│   └── SolidDocs/              # SolidDocs 库项目
-│       ├── Models/             # 模型类
-│       ├── Services/           # 服务实现
+│   └── SolidDocs/              # SolidDocs library project
+│       ├── Models/             # Model classes
+│       ├── Services/           # Service implementations
 │       ├── SolidDocsBuilderExtensions.cs
 │       ├── SolidDocs.csproj
 │       └── README.md
 ├── examples/
-│   └── SolidDocsExample/       # 使用示例项目
+│   └── SolidDocsExample/       # Usage example project
 │       ├── Program.cs
 │       └── SolidDocsExample.csproj
 ├── docs/
-│   └── REFACTORING_SUMMARY.md  # 重构总结文档
-├── SolidDocs.sln              # 解决方案文件
-└── README.md                  # 项目说明
+│   └── REFACTORING_SUMMARY.md  # Refactoring summary document
+├── SolidDocs.sln              # Solution file
+└── README.md                  # Project documentation
 ```
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 1. 构建库
+### 1. Build the Library
 
 ```bash
-# 构建 SolidDocs 库
+# Build the SolidDocs library
 dotnet build src/SolidDocs/SolidDocs.csproj
 
-# 构建示例项目
+# Build the example project
 dotnet build examples/SolidDocsExample/SolidDocsExample.csproj
 ```
 
-### 2. 运行示例
+### 2. Run the Example
 
 ```bash
-# 运行示例项目
+# Run the example project
 dotnet run --project examples/SolidDocsExample/SolidDocsExample.csproj
 ```
 
-### 3. 在你的项目中使用
+### 3. Use in Your Project
 
 ```csharp
 using SolidDocs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 添加 SolidDocs 服务
+// Add SolidDocs services
 builder.Services.AddSolidDocs(options =>
 {
     options.RootPath = "wwwroot/soliddocs";
@@ -61,82 +64,82 @@ builder.Services.AddSolidDocs(options =>
 
 var app = builder.Build();
 
-// 使用 SolidDocs 中间件
+// Use SolidDocs middleware
 app.UseSolidDocs();
 
 app.Run();
 ```
 
-## 📋 API 端点
+## 📋 API Endpoints
 
-### 模板管理
-- `POST /soliddocs/templates/upload` - 上传模板
-- `GET /soliddocs/templates` - 获取模板列表
-- `DELETE /soliddocs/templates/{name}` - 删除模板
+### Template Management
+- `POST /soliddocs/templates/upload` - Upload template
+- `GET /soliddocs/templates` - Get template list
+- `DELETE /soliddocs/templates/{name}` - Delete template
 
-### 文档管理
-- `POST /soliddocs/documents/create` - 创建文档
-- `GET /soliddocs/documents/{id}/editor` - 获取编辑器链接
-- `GET /soliddocs/documents/{id}/status` - 获取文档状态
-- `POST /soliddocs/documents/{id}/sign` - 签署文档
-- `POST /soliddocs/documents/{id}/finalize` - 最终确认
-- `POST /soliddocs/documents/{id}/export` - 导出 PDF
-- `GET /soliddocs/documents/{id}/download` - 下载 PDF
-- `GET /soliddocs/documents/{id}/file` - 获取文档文件
+### Document Management
+- `POST /soliddocs/documents/create` - Create document
+- `GET /soliddocs/documents/{id}/editor` - Get editor link
+- `GET /soliddocs/documents/{id}/status` - Get document status
+- `POST /soliddocs/documents/{id}/sign` - Sign document
+- `POST /soliddocs/documents/{id}/finalize` - Finalize document
+- `POST /soliddocs/documents/{id}/export` - Export to PDF
+- `GET /soliddocs/documents/{id}/download` - Download PDF
+- `GET /soliddocs/documents/{id}/file` - Get document file
 
-## 🔧 开发
+## 🔧 Development
 
-### 构建所有项目
+### Build All Projects
 
 ```bash
 dotnet build
 ```
 
-### 运行示例
+### Run Example
 
 ```bash
-# 运行示例项目
+# Run the example project
 dotnet run --project examples/SolidDocsExample/SolidDocsExample.csproj
 ```
 
-### 清理构建
+### Clean Build
 
 ```bash
 dotnet clean
 ```
 
-## 📚 文档
+## 📚 Documentation
 
-- [SolidDocs 库文档](src/SolidDocs/README.md)
-- [重构总结](docs/REFACTORING_SUMMARY.md)
+- [SolidDocs Library Documentation](src/SolidDocs/README.md)
+- [Refactoring Summary](docs/REFACTORING_SUMMARY.md)
 
-## 🎯 特性
+## 🎯 Features
 
-- ✅ **自包含设计** - 所有功能都在一个库中
-- ✅ **可重用性** - 可以轻松集成到任何 ASP.NET Core 应用
-- ✅ **可配置** - 通过选项模式进行灵活配置
-- ✅ **现代化** - 使用 ASP.NET Core Minimal API
-- ✅ **文档化** - 完整的 XML 文档和 README
-- ✅ **JWT 安全** - 为 OnlyOffice 集成提供安全机制
-- ✅ **CORS 支持** - 可配置的跨域请求支持
+- ✅ **Self-contained Design** - All functionality in one library
+- ✅ **Reusable** - Easy to integrate into any ASP.NET Core application
+- ✅ **Configurable** - Flexible configuration through options pattern
+- ✅ **Modern** - Uses ASP.NET Core Minimal API
+- ✅ **Documented** - Complete XML documentation and README
+- ✅ **JWT Security** - Secure mechanism for OnlyOffice integration
+- ✅ **CORS Support** - Configurable cross-origin request support
 
-## 📝 注意事项
+## 📝 Notes
 
-1. **MVP 版本** - PDF 导出功能为模拟实现
-2. **内存存储** - 文档元数据存储在内存中
-3. **文件存储** - 使用本地文件系统
-4. **生产就绪** - 需要添加数据库持久化和真实的 PDF 转换
+1. **MVP Version** - PDF export functionality is simulated
+2. **In-Memory Storage** - Document metadata stored in memory
+3. **File Storage** - Uses local file system
+4. **Production Ready** - Requires database persistence and real PDF conversion
 
-## 🔄 下一步
+## 🔄 Next Steps
 
-- [ ] 添加数据库持久化
-- [ ] 集成真实的 OnlyOffice ConvertService
-- [ ] 添加用户认证和授权
-- [ ] 添加文件版本控制
-- [ ] 添加审计日志
-- [ ] 添加缓存机制
-- [ ] 发布到 NuGet
+- [ ] Add database persistence
+- [ ] Integrate real OnlyOffice ConvertService
+- [ ] Add user authentication and authorization
+- [ ] Add file version control
+- [ ] Add audit logging
+- [ ] Add caching mechanism
+- [ ] Publish to NuGet
 
-## �� 许可证
+## 📄 License
 
 MIT License 
